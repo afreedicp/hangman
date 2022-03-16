@@ -70,11 +70,11 @@ def test_create_status_no_guesses():
     Remaining_turns:8"""
 
 
-# def test_create_status_normal():
-#     secret_word = ""
-#     guesses = ["a", "x", "h"]
-#     remaining_turns = 4
-#     assert hangman.create_status(secret_word, guesses, remaining_turns) == """Word: ha---a-
-# Guesses: a x h
-# Remaining turns : 4
-# """
+def test_create_status_normal():
+    secret_word = "aligator"
+    guesses = ["a", "g", "h"]
+    remaining_turns = 4
+    ret = hangman.hangman_create_status(secret_word, guesses, remaining_turns)
+    assert ret == """Word:a--ga---
+    Guesses:a g h
+    Remaining_turns:4"""
