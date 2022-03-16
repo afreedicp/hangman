@@ -1,6 +1,5 @@
 
 import os
-
 import hangman
 
 
@@ -43,5 +42,5 @@ def test_get_word_min_length():
 def test_mask_word_a_letter():
     secret_word = "aligator"
     guesses = ["g"]
-    ret = hangman_mask(secret_word, guesses)
+    ret = hangman.hangman_mask(secret_word, guesses)
     assert ret == "---g----"

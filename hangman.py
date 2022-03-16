@@ -12,6 +12,10 @@ def get_word(wordfile="/usr/share/dict/words"):
 
 
 def hangman_mask(secrete_words, guesses):
+    result_string = []
     for i in secrete_words:
-        if i == guesses[0]:
-            return
+        if i in guesses:
+            result_string.append(i)
+        else:
+            result_string.append("-")
+    return "".join(result_string)
