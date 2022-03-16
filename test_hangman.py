@@ -44,3 +44,17 @@ def test_mask_word_a_letter():
     guesses = ["g"]
     ret = hangman.hangman_mask(secret_word, guesses)
     assert ret == "---g----"
+
+
+def test_mask_word_multiple_letters():
+    secret_word = "aligator"
+    guesses = ["a"]
+    ret = hangman.hangman_mask(secret_word, guesses)
+    assert ret == "a---a---"
+
+
+def test_mask_word_mixed_letters():
+    secret_word = "aligator"
+    guesses = ["a", "g", "w"]
+    ret = hangman.hangman_mask(secret_word, guesses)
+    assert ret == "a--ga---"
