@@ -89,5 +89,41 @@ def test_correct_guess():
         secret_word, guesses, remaining_turns, guessed)
     assert guesses == ["a"]
     assert remaining_turns == 5
+    assert repeat == False
+    assert finished == False
+
+
+def test_play_correct_wrong():
+    secret_word = "aligator"
+    guesses = ["a"]
+    remaining_turns = 7
+    guessed = "x"
+    remaining_turns, repeat, finished = hangman.hangman_play(
+        secret_word, guesses, remaining_turns, guessed)
+    assert guesses == ["a", "x"]
+    assert remaining_turns == 6
+    assert repeat == False
+    assert finished == False
+
+
+def test_play_correct_complete():
+    secret_word = "aligator"
+    guesses = ["a", "e", "w", "t", "l", "i", "o", "g", "r", "u", "w"]
+    remaining_turns = 2
+    guessed = "r"
+    remaining_turns, repeat, finished = hangman.hangman_play(
+        secret_word, guesses, remaining_turns, guessed)
+    assert finished == True
+
+
+def test_play_round_correct_repeat():
+    secret_word = "aligator"
+    guesses = ["a"]
+    remaining_turns = 4
+    guessed = "a"
+    remaining_turns, repeat, finished = hangman.hangman_play(
+        secret_word, guesses, remaining_turns, guessed)
+    assert guesses == ["a"]
+    assert remaining_turns == 4
     assert repeat == True
     assert finished == False
