@@ -19,3 +19,11 @@ def hangman_mask(secrete_words, guesses):
         else:
             result_string.append("-")
     return "".join(result_string)
+
+
+def hangman_create_status(secrete_words, guesses, remaining_turn):
+    masked_word = hangman_mask(secrete_words, guesses)
+    guesses = "".join(guesses)
+    return f"""Word:{masked_word}
+    Guesses:{guesses}
+    Remaining_turns:{remaining_turn}"""
