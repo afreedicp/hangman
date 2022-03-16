@@ -52,7 +52,7 @@ def main():
         print(status)
         guessed = input("Enter a letter ").strip()
         remaining_turns, repeat, finished = hangman_play(
-            secret_word, guesses, guessed, remaining_turns)
+            secret_word, guesses, remaining_turns, guessed)
         if finished:
             print(f"You found the secret word '{secret_word}'")
             break
