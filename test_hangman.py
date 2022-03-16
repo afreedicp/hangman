@@ -78,3 +78,16 @@ def test_create_status_normal():
     assert ret == """Word:a--ga---
     Guesses:a g h
     Remaining_turns:4"""
+
+
+def test_correct_guess():
+    secret_word = "aligator"
+    guesses = []
+    remaining_turns = 5
+    guessed = "a"
+    remaining_turns, repeat, finished = hangman.hangman_play(
+        secret_word, guesses, remaining_turns, guessed)
+    assert guesses == ["a"]
+    assert remaining_turns == 5
+    assert repeat == True
+    assert finished == False
